@@ -1,247 +1,34 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>loading233</title><meta name="author" content="loading233"><meta name="copyright" content="loading233"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="欲买桂花同载酒，终不似，少年游。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="loading233">
-<meta property="og:url" content="https://loading2332.github.io/index.html">
-<meta property="og:site_name" content="loading233">
-<meta property="og:description" content="欲买桂花同载酒，终不似，少年游。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://loading2332.github.io/img/1.jpeg">
-<meta property="article:author" content="loading233">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://loading2332.github.io/img/1.jpeg"><link rel="shortcut icon" href="/img/rem.png"><link rel="canonical" href="https://loading2332.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
-    }
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="欲买桂花同载酒，终不似，少年游。"><title>loading233</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script src="https://www.googletagmanager.com/gtag/js?id=G-16VZTLNZTJ" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-16VZTLNZTJ');
+</script><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><div class="darkmode-toggle">🌓</div><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var toggle = document.querySelector('.darkmode-toggle');
+var html = document.querySelector('html');
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
-  
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
 
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
+toggle.addEventListener('click', () => {
+localStorage.dark = !(html.dataset.dark == 'true');
+html.dataset.dark = localStorage.dark;
+});</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">loading233</h1><a id="logo" href="/.">loading233</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2025/09/20/%E7%94%B1%20Ghelper%20%E5%BC%95%E5%8F%91%E7%9A%84%20Win11%20%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86%E5%99%A8%E5%A4%B1%E6%95%88/">由 Ghelper 引发的 Win11 凭证管理器失效</a></h1><div class="post-meta">2025-09-20</div><div class="post-content">更新了 Ghelper 之后，电脑的凭证管理器失效了，每次重启大部分的账户都要重新登录。查询后可能是由 Windows 的一个 bug 所导致。在最近的 W10 更新中，少数计算机中的 Credential Manager 出现故障，365 名用户感到沮丧 |Technibble 论坛 — Credential Manager broken in a han...</div><p class="readmore"><a href="/2025/09/20/%E7%94%B1%20Ghelper%20%E5%BC%95%E5%8F%91%E7%9A%84%20Win11%20%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86%E5%99%A8%E5%A4%B1%E6%95%88/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/09/14/ccb/">长城杯</a></h1><div class="post-meta">2025-09-14</div><div class="post-content">web文曲星开启调试模式，有 read 功能。打开hint之后得到了思路，采用路径穿越。使用
+1action=command&amp;content=%23read%20....//....//....//....//....//....//flag
+serce用到了CVE-2024-2961
+123456789&lt;?phphighlight_file(...</div><p class="readmore"><a href="/2025/09/14/ccb/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/09/13/N1JCTF/WP/">N1JCTF2025</a></h1><div class="post-meta">2025-09-13</div><div class="post-content">online_unzipper白盒，FLASK_SECRET_KEY 在环境变量。先构造软路由：
+12ln -s /proc/self/environ testzip -y test.zip test
 
-      const theme = saveToLocal.get('theme')
-    
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-  
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
-  copy: {
-    success: '复制成功',
-    error: '复制失败',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '天',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyloadPlugin: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'loading233',
-  isHighlightShrink: false,
-  isToc: false,
-  pageType: 'home'
-}</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/bg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/1.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-folder-open"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> 学习日志</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-reader"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">loading233</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-folder-open"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> 学习日志</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book-reader"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">loading233</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/20/%E7%94%B1%20Ghelper%20%E5%BC%95%E5%8F%91%E7%9A%84%20Win11%20%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86%E5%99%A8%E5%A4%B1%E6%95%88/" title="由 Ghelper 引发的 Win11 凭证管理器失效">由 Ghelper 引发的 Win11 凭证管理器失效</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-20T00:26:24.000Z" title="发表于 2025-09-20 08:26:24">2025-09-20</time></span></div><div class="content">更新了 Ghelper 之后，电脑的凭证管理器失效了，每次重启大部分的账户都要重新登录。查询后可能是由 Windows 的一个 bug 所导致。在最近的 W10 更新中，少数计算机中的 Credential Manager 出现故障，365 名用户感到沮丧 |Technibble 论坛 — Credential Manager broken in a handful of computers in recent W10 updates, 365 users frustrated | Technibble Forums  So those old tasks were interfering with the existing cleanup the modern auth system does on its own. In effect, the scheduled task was deleting the credentials every 15min.  做法是在管理员 Powershell 中，输入 1Get-ScheduledTask | foreach...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/14/ccb/" title="长城杯">长城杯</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-14T01:45:00.000Z" title="发表于 2025-09-14 09:45:00">2025-09-14</time></span></div><div class="content">web文曲星开启调试模式，有 read 功能。打开hint之后得到了思路，采用路径穿越。使用 1action=command&amp;content=%23read%20....//....//....//....//....//....//flag serce用到了CVE-2024-2961 123456789&lt;?phphighlight_file(__FILE__);$exp = $_GET[&quot;exp&quot;];if(isset($exp))&#123;    if(serialize(unserialize($exp)) != $exp)&#123;        $data = file_get_contents($_POST[&#x27;filetoread&#x27;]);        echo &quot;File Contents: $data&quot;;    &#125;&#125;  exp可以使用数字直接绕过了。接下来把脚本的Remote类更改一下： 123456789101112131415161718class Remote:...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/13/N1JCTF/WP/" title="N1JCTF2025">N1JCTF2025</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-13T15:26:59.000Z" title="发表于 2025-09-13 23:26:59">2025-09-13</time></span></div><div class="content">online_unzipper白盒，FLASK_SECRET_KEY 在环境变量。先构造软路由： 12ln -s /proc/self/environ testzip -y test.zip test  上传之后可以得到环境变量，伪造 session ，得到 admin 身份。 1234if role == &quot;admin&quot;:    dirname = request.form.get(&quot;dirname&quot;) or str(uuid.uuid4())else:    dirname = str(uuid.uuid4())     admin 可以自定义解压文件夹，我们再跟进一下解压逻辑。 1os.system(f&quot;unzip -o &#123;zip_path&#125; -d &#123;target_dir&#125;&quot;)  可见我们只要在自定义解压文件夹处使用;就可以执行代码了。不用在意压缩包的内容和名称。 1x; mkdir -p /app/uploads/public; cat /flag-*.txt &gt;...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/16/Sekai%202025/" title="Sekai 2025">Sekai 2025</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-16T07:12:11.000Z" title="发表于 2025-08-16 15:12:11">2025-08-16</time></span></div><div class="content">flaskLinux系统的/proc/self/mountinfo记录当前系统所有挂载文件系统的信息。 源码中出现了 RUN mv flag.txt /flag-$(cat /dev/urandom | tr -dc &#39;a-zA-Z0-9&#39; | fold -w 32 | head -n 1).txt 所以读取这个文件可以得知flag名称。flag1:4c494c4354467b </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/12/lilctf/" title="lilctf">lilctf</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-12T13:40:41.000Z" title="发表于 2025-08-12 21:40:41">2025-08-12</time></span></div><div class="content">misc预热挺有意思的，关于腾讯文档时间截止后如何得到提交后的显示内容。查询腾讯的官方文档得知，腾讯文档有个返回结果的API是https://wj.qq.com/sur/get_survey?id=xxx&amp;hash=xxx，发包之后就得到了结果。 webblade_cc从这道题开始学习 Java 反序列化。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/08/03/cube_ctf/" title="cube_ctf">cube_ctf</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-03T11:05:13.000Z" title="发表于 2025-08-03 19:05:13">2025-08-03</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/ctf/">ctf</a></span></div><div class="content">legal snacks12345678910@app.route(&#x27;/cart/add&#x27;, methods=[&#x27;POST&#x27;])def add_to_cart():    product_id = request.form.get(&#x27;product_id&#x27;, type=int)    quantity = request.form.get(&#x27;quantity&#x27;, 1, type=int)    cart = session.get(&#x27;cart&#x27;, &#123;&#125;)    cart[str(product_id)] = cart.get(str(product_id), 0) + quantity    session[&#x27;cart&#x27;] = cart    return...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/06/09/cs61b/" title="CS61B，启动！">CS61B，启动！</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-09T08:44:27.297Z" title="发表于 2025-06-09 16:44:27">2025-06-09</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/csdiy/">csdiy</a></span></div><div class="content">注：本文中的week对应课程时间安排。 week15.15学习了java的基本语法和结构。java是一门面向对象语言。程序文件都是由一个个类构成，代码必须在函数内执行。与python需要区别语法是，它以大括号作为分隔，并且每行语句结束需要;，其实大部分语法和cpp比较接近。对于变量都要声明类型。以hello world为例： 12345public class hello_world&#123;	public static void main(String[] args)&#123;		System.out.println(&quot;hello world&quot;);		&#125;&#125; 另外对于方法而言，Java 允许我们定义两种类型方法。  static，静态方法，由类本身执行的操作。 x = Math.sqrt(100);   非静态方法，实例方法，只能由类的特定实例执行。 Math m &#x3D; new Math();x &#x3D; m.sqrt(100);     week25.17主要学习了测试的方法，还有一些细节。...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/05/06/Python_%E8%AF%AD%E6%B3%95%E7%B3%96/" title="Python_语法糖">Python_语法糖</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-06T14:28:07.226Z" title="发表于 2025-05-06 22:28:07">2025-05-06</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/language/">language</a></span></div><div class="content">本篇文章是转专业机考前抱佛脚所写，可能有点马虎和功利。 itertools 全排列和全组合combinations和permutations两者都是itertools中的函数，可以实现生成字符串、字典、列表，元组中的排列和组合后的元素，形式为元组。先从itertools中引入。 123456789from itertools import combinations,permutations# 语法为combinations(iterable,元素个数)——# permutation中，元素个数不写则默认为全部n,m = map(int,input().split())l = [str(x) for x in range(1,n+1)]for i in combinations(l,m):    print(&#x27; &#x27;.join(i))#全组合for j in permutations(l):    print(&#x27;...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/05/06/%E4%BB%8E%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%AD%A6%E4%B9%A0datetime/" title="从回文日期学习datetime">从回文日期学习datetime</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-06T10:14:33.296Z" title="发表于 2025-05-06 18:14:33">2025-05-06</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/algo/">algo</a></span></div><div class="content"> 先放上两种做法 1234567891011121314151617181920212223242526#思路是对年代进行迭代,进行回文操作后查看日期是否合法from datetime import datetimedef judge(y,m,d):    try:        datetime(y,m,d)        return True    except ValueError:        return Falset1 = input()t2 = input()start = int(t1[:4])end = int(t2[:4])cnt = 0for y in range(start,end+1):    y_str = f&#x27;&#123;y:04d&#125;&#x27;    m = int(y_str[::-1][:2])    d = int(y_str[::-1][2:])    if judge(y,m,d):        res =...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/04/27/%E5%8D%81%E5%85%AD%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFPythonA%E7%BB%84%E5%A4%8D%E7%9B%98/" title="十六届蓝桥杯PythonA组复盘">十六届蓝桥杯PythonA组复盘</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-27T14:16:44.243Z" title="发表于 2025-04-27 22:16:44">2025-04-27</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/algo/">algo</a></span></div><div class="content">A简单的暴力枚举 1234567cnt = 0for r in range(0,256):    for g in range(0,256):        for b in range(0,256):            if b &gt; g and b &gt; r:                cnt += 1print(cnt)  B当时比赛的时候卡了很久wwww，看了题解也不会。。。 C模运算的使用，但是也可以无脑拓宽长度，这样就不用取模了 1234h,w = map(int,input().split())a = &#x27;2025&#x27;*9999for i in range(h):   ...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/1.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">loading233</div><div class="author-info-description">欲买桂花同载酒，终不似，少年游。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/loading2332"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/20/%E7%94%B1%20Ghelper%20%E5%BC%95%E5%8F%91%E7%9A%84%20Win11%20%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86%E5%99%A8%E5%A4%B1%E6%95%88/" title="由 Ghelper 引发的 Win11 凭证管理器失效">由 Ghelper 引发的 Win11 凭证管理器失效</a><time datetime="2025-09-20T00:26:24.000Z" title="发表于 2025-09-20 08:26:24">2025-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/ccb/" title="长城杯">长城杯</a><time datetime="2025-09-14T01:45:00.000Z" title="发表于 2025-09-14 09:45:00">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/13/N1JCTF/WP/" title="N1JCTF2025">N1JCTF2025</a><time datetime="2025-09-13T15:26:59.000Z" title="发表于 2025-09-13 23:26:59">2025-09-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/16/Sekai%202025/" title="Sekai 2025">Sekai 2025</a><time datetime="2025-08-16T07:12:11.000Z" title="发表于 2025-08-16 15:12:11">2025-08-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/12/lilctf/" title="lilctf">lilctf</a><time datetime="2025-08-12T13:40:41.000Z" title="发表于 2025-08-12 21:40:41">2025-08-12</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Python/" style="font-size: 1.3em; color: #99a1ac">Python</a> <a href="/tags/ctf/" style="font-size: 1.5em; color: #99a9bf">ctf</a> <a href="/tags/language/" style="font-size: 1.3em; color: #99a1ac">language</a> <a href="/tags/algo/" style="font-size: 1.5em; color: #99a9bf">algo</a> <a href="/tags/csdiy/" style="font-size: 1.1em; color: #999">csdiy</a></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>归档</span>
-      
-    </div>
-  
-    <ul class="card-archive-list">
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/09/">
-            <span class="card-archive-list-date">
-              九月 2025
-            </span>
-            <span class="card-archive-list-count">3</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/08/">
-            <span class="card-archive-list-date">
-              八月 2025
-            </span>
-            <span class="card-archive-list-count">3</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/06/">
-            <span class="card-archive-list-date">
-              六月 2025
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/05/">
-            <span class="card-archive-list-date">
-              五月 2025
-            </span>
-            <span class="card-archive-list-count">2</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/04/">
-            <span class="card-archive-list-date">
-              四月 2025
-            </span>
-            <span class="card-archive-list-count">3</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/03/">
-            <span class="card-archive-list-date">
-              三月 2025
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2025/01/">
-            <span class="card-archive-list-date">
-              一月 2025
-            </span>
-            <span class="card-archive-list-count">1</span>
-          </a>
-        </li>
-      
-    </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-01-21T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-20T00:33:32.832Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By loading233</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
-  init: str => {
-    window.typed = new Typed('#subtitle', Object.assign({
-      strings: str,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50,
-    }, false))
-  },
-  run: subtitleType => {
-    if (true) {
-      if (typeof Typed === 'function') {
-        subtitleType()
-      } else {
-        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
-      }
-    } else {
-      subtitleType()
-    }
-  }
-}
-btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
-</script><script>function subtitleType () {
-  if (true) {
-    typedJSFn.init(["菩提本无树 &#44; 明镜亦非台","本来无一物 &#44; 何处惹尘埃"])
-  } else {
-    document.getElementById("subtitle").textContent = "菩提本无树 &#44; 明镜亦非台"
-  }
-}
-typedJSFn.run(subtitleType)</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="Ciallo~,0d000721,114514" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+上传之后可以得到环境变量，伪造 session ，得到 admin 身份。
+1234if role == &quot;admin&quot;:    dir...</div><p class="readmore"><a href="/2025/09/13/N1JCTF/WP/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/08/16/Sekai%202025/">Sekai 2025</a></h1><div class="post-meta">2025-08-16</div><div class="post-content">flaskLinux系统的/proc/self/mountinfo记录当前系统所有挂载文件系统的信息。
+源码中出现了
+RUN mv flag.txt /flag-$(cat /dev/urandom | tr -dc &#39;a-zA-Z0-9&#39; | fold -w 32 | head -n 1).txt
+所以读取这个文件可以得知flag名称。fl...</div><p class="readmore"><a href="/2025/08/16/Sekai%202025/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/08/12/lilctf/">lilctf</a></h1><div class="post-meta">2025-08-12</div><div class="post-content">misc预热挺有意思的，关于腾讯文档时间截止后如何得到提交后的显示内容。查询腾讯的官方文档得知，腾讯文档有个返回结果的API是https://wj.qq.com/sur/get_survey?id=xxx&amp;hash=xxx，发包之后就得到了结果。
+webblade_cc从这道题开始学习 Java 反序列化。
+</div><p class="readmore"><a href="/2025/08/12/lilctf/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/08/03/cube_ctf/">cube_ctf</a></h1><div class="post-meta">2025-08-03</div><div class="post-content">legal snacks12345678910@app.route(&#x27;/cart/add&#x27;, methods=[&#x27;POST&#x27;])def add_to_cart():    product_id = request.form.get(&#x27;product_id&#x27;, type=int)    quantit...</div><p class="readmore"><a href="/2025/08/03/cube_ctf/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/06/09/cs61b/">CS61B，启动！</a></h1><div class="post-meta">2025-06-09</div><div class="post-content">注：本文中的week对应课程时间安排。
+week15.15学习了java的基本语法和结构。java是一门面向对象语言。程序文件都是由一个个类构成，代码必须在函数内执行。与python需要区别语法是，它以大括号作为分隔，并且每行语句结束需要;，其实大部分语法和cpp比较接近。对于变量都要声明类型。以hello world为例：
+12345public clas...</div><p class="readmore"><a href="/2025/06/09/cs61b/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/05/06/Python_%E8%AF%AD%E6%B3%95%E7%B3%96/">Python_语法糖</a></h1><div class="post-meta">2025-05-06</div><div class="post-content">本篇文章是转专业机考前抱佛脚所写，可能有点马虎和功利。
+itertools 全排列和全组合combinations和permutations两者都是itertools中的函数，可以实现生成字符串、字典、列表，元组中的排列和组合后的元素，形式为元组。先从itertools中引入。
+123456789from itertools import combinati...</div><p class="readmore"><a href="/2025/05/06/Python_%E8%AF%AD%E6%B3%95%E7%B3%96/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/05/06/%E4%BB%8E%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%AD%A6%E4%B9%A0datetime/">从回文日期学习datetime</a></h1><div class="post-meta">2025-05-06</div><div class="post-content"> 先放上两种做法
+1234567891011121314151617181920212223242526#思路是对年代进行迭代,进行回文操作后查看日期是否合法from datetime import datetimedef judge(y,m,d):    try:        datetime(y,m,d)        return True    e...</div><p class="readmore"><a href="/2025/05/06/%E4%BB%8E%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%AD%A6%E4%B9%A0datetime/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2025/04/27/%E5%8D%81%E5%85%AD%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFPythonA%E7%BB%84%E5%A4%8D%E7%9B%98/">十六届蓝桥杯PythonA组复盘</a></h1><div class="post-meta">2025-04-27</div><div class="post-content">A简单的暴力枚举
+1234567cnt = 0for r in range(0,256):    for g in range(0,256):        for b in range(0,256):            if b &gt; g and b &gt; r:                cnt += 1print(cnt)
+
+B当时比赛的...</div><p class="readmore"><a href="/2025/04/27/%E5%8D%81%E5%85%AD%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFPythonA%E7%BB%84%E5%A4%8D%E7%9B%98/">阅读全文</a></p></div><nav class="page-navigator"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://loading2332.github.io"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="/img/avatar.jpg"/></a><p>loading...</p><a class="info-icon" href="https://github.com/loading2332" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/language/" style="font-size: 15px;">language</a> <a href="/tags/algo/" style="font-size: 15px;">algo</a> <a href="/tags/ctf/" style="font-size: 15px;">ctf</a> <a href="/tags/csdiy/" style="font-size: 15px;">csdiy</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/09/20/%E7%94%B1%20Ghelper%20%E5%BC%95%E5%8F%91%E7%9A%84%20Win11%20%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86%E5%99%A8%E5%A4%B1%E6%95%88/">由 Ghelper 引发的 Win11 凭证管理器失效</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/09/14/ccb/">长城杯</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/09/13/N1JCTF/WP/">N1JCTF2025</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/08/16/Sekai%202025/">Sekai 2025</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/08/12/lilctf/">lilctf</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/08/03/cube_ctf/">cube_ctf</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/06/09/cs61b/">CS61B，启动！</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/05/06/Python_%E8%AF%AD%E6%B3%95%E7%B3%96/">Python_语法糖</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/05/06/%E4%BB%8E%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%AD%A6%E4%B9%A0datetime/">从回文日期学习datetime</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/04/27/%E5%8D%81%E5%85%AD%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFPythonA%E7%BB%84%E5%A4%8D%E7%9B%98/">十六届蓝桥杯PythonA组复盘</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">loading233.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
