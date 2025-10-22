@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="欲买桂花同载酒，终不似，少年游。"><title>css | loading233</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="https://unpkg.com/normalize.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/pure-min.css"><link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="https://unpkg.com/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script src="https://www.googletagmanager.com/gtag/js?id=G-16VZTLNZTJ" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-16VZTLNZTJ');
+</script><script type="text/javascript" src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="https://unpkg.com/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="https://unpkg.com/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">css</h1><a id="logo" href="/.">loading233</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">css</h1><div class="post-meta">2025-10-22<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 2.4k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i><span class="post-count"> 11</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="post-content"><p>!快捷创建</p>
+<p>link快捷创建<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</code></p>
+<h1 id="CSS-Selectors"><a href="#CSS-Selectors" class="headerlink" title="CSS Selectors"></a>CSS Selectors</h1><p>元素选择器</p>
+<p>类型选择器</p>
+<p>尽量使用<code>class</code>选择器</p>
+<p><code>*</code>通用选择器，选择全部元素本身</p>
+<p>工作方式：瀑布式，自上往下，除非有更加具体的元素选择器，否则会被替代</p>
+<p>引入了<strong>specificity</strong>的概念</p>
+<blockquote>
+<p>具体的权重计算：<a target="_blank" rel="noopener" href="https://specificity.keegan.st/">https://specificity.keegan.st/</a></p>
+</blockquote>
+<h1 id="CSS-Color"><a href="#CSS-Color" class="headerlink" title="CSS Color"></a>CSS Color</h1><p>调色网站，还能检查对比度：<a target="_blank" rel="noopener" href="https://coolors.co/">https://coolors.co/</a></p>
+<p>hsl调色，便于调出相辅颜色</p>
+<h1 id="CSS-Unit-Size"><a href="#CSS-Unit-Size" class="headerlink" title="CSS Unit&amp;Size"></a>CSS Unit&amp;Size</h1><p>rem：the root size <strong>16px</strong></p>
+<p>vw问题</p>
+<p>假设浏览器窗口宽度是 <strong>1920px</strong>，滚动条占了 <strong>17px</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>实际宽度计算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>100vw</code></td>
+<td>整个视口宽度</td>
+<td><strong>1920px</strong></td>
+</tr>
+<tr>
+<td>可见内容宽度（不含滚动条）</td>
+<td>1920px - 17px</td>
+<td><strong>1903px</strong></td>
+</tr>
+<tr>
+<td><code>100%</code></td>
+<td>父元素内容宽度（1903px）</td>
+<td><strong>1903px</strong></td>
+</tr>
+</tbody></table>
+<p>因此：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  width: 100vw; /* 1920px */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>会比实际内容宽（1903px）多出 17px，浏览器于是多出一个横向滚动条来显示这 17px。</p>
+<h1 id="CSS-Box-Model"><a href="#CSS-Box-Model" class="headerlink" title="CSS Box_Model"></a>CSS Box_Model</h1><h2 id="1-盒模型的组成部分"><a href="#1-盒模型的组成部分" class="headerlink" title="1.盒模型的组成部分"></a><font style="color:rgb(25, 27, 31);">1.盒模型的组成部分</font></h2><p><font style="color:rgb(25, 27, 31);">CSS盒模型每个 HTML 元素都被视为一个矩形盒子，由外到内包含：</font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=264207395&content_type=Article&match_order=1&q=%E5%A4%96%E8%BE%B9%E8%B7%9D&zhida_source=entity"><font style="color:rgb(9, 64, 142);">外边距</font></a><font style="color:rgb(25, 27, 31);">（margin）、边框（border）、</font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=264207395&content_type=Article&match_order=1&q=%E5%86%85%E8%BE%B9%E8%B7%9D&zhida_source=entity"><font style="color:rgb(9, 64, 142);">内边距</font></a><font style="color:rgb(25, 27, 31);">（padding）、实际内容（content）四个属性。</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/61266124/1760541104752-a361bd9e-f9cc-4ea9-a0df-2cbc424e9a21.png"></p>
+<p><font style="color:rgb(25, 27, 31);">Margin（外边距）：盒子与其他元素之间的透明间距；允许负值（margin: -10px）</font></p>
+<p><font style="color:rgb(25, 27, 31);">Border（边框）：分隔 padding 和 margin 的可见线条；可单独控制样式、宽度和颜色</font></p>
+<p><font style="color:rgb(25, 27, 31);">Padding（内边距）：内容与边框之间的透明区域；支持单边设置（padding-top&#x2F;right&#x2F;bottom&#x2F;left）</font></p>
+<p><font style="color:rgb(25, 27, 31);">Content（内容区）：包含文本、图片等实际内容；通过 width和 height控制尺寸</font></p>
+<h2 id="2-两种盒模型模式"><a href="#2-两种盒模型模式" class="headerlink" title="2.两种盒模型模式"></a><font style="color:rgb(25, 27, 31);">2.两种盒模型模式</font></h2><p><font style="color:rgb(25, 27, 31);">1. </font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=264207395&content_type=Article&match_order=1&q=%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B&zhida_source=entity"><font style="color:rgb(9, 64, 142);">标准盒模型</font></a><font style="color:rgb(25, 27, 31);">（content-box）</font></p>
+<ul>
+<li><font style="color:rgb(25, 27, 31);">默认模式</font></li>
+<li><font style="color:rgb(25, 27, 31);">设定的width是content的宽度</font></li>
+<li><font style="color:rgb(25, 27, 31);">元素总宽&#x2F;高度（Margin内） &#x3D; width+ padding+ border</font></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: content-box; <span class="comment">/* 默认值 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid;</span><br><span class="line">  <span class="comment">/* 实际宽度 = 200 + 20 * 2 + 5 * 2 = 250px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:rgb(25, 27, 31);">2. </font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=264207395&content_type=Article&match_order=1&q=%E6%80%AA%E5%BC%82%E7%9B%92%E6%A8%A1%E5%9E%8B&zhida_source=entity"><font style="color:rgb(9, 64, 142);">怪异盒模型</font></a><font style="color:rgb(25, 27, 31);">（border-box）</font></p>
+<ul>
+<li><font style="color:rgb(25, 27, 31);">设定的 width &#x3D; 元素总宽度</font></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid;</span><br><span class="line">  <span class="comment">/* 实际内容宽度 = 200 - 20 * 2 - 5 * 2 = 150px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-盒模型的重要特性"><a href="#3-盒模型的重要特性" class="headerlink" title="3.盒模型的重要特性"></a><font style="color:rgb(25, 27, 31);">3.盒模型的重要特性</font></h2><p><font style="color:rgb(25, 27, 31);">1. </font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=264207395&content_type=Article&match_order=1&q=%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6&zhida_source=entity"><font style="color:rgb(9, 64, 142);">外边距合并</font></a><font style="color:rgb(25, 27, 31);">（Margin Collapse）</font></p>
+<ul>
+<li><strong><font style="color:rgb(25, 27, 31);">垂直相邻</font></strong><font style="color:rgb(25, 27, 31);">的外边距会合并为较大值</font></li>
+<li><font style="color:rgb(25, 27, 31);">当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和&#x2F;或下外边距也会发生合并。</font></li>
+<li><font style="color:rgb(25, 27, 31);">仅发生在块级元素（不包括浮动&#x2F;绝对定位元素）</font></li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/61266124/1760541104904-5ae0ae48-ca9a-4fb0-94ac-a41b66bf1e93.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;a&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;b&quot; style=&quot;margin-top: 10px;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;!-- 实际间距为20px（非30px） --&gt;</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:rgb(25, 27, 31);">解决方案：</font></p>
+<ul>
+<li><font style="color:rgb(25, 27, 31);">使用 padding替代</font></li>
+<li><font style="color:rgb(25, 27, 31);">创建 BFC（如添加 overflow: hidden）</font></li>
+</ul>
+<p><font style="color:rgb(25, 27, 31);">2.</font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=264207395&content_type=Article&match_order=1&q=%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90&zhida_source=entity"><font style="color:rgb(9, 64, 142);">块级盒子</font></a><font style="color:rgb(25, 27, 31);"> </font><font style="color:rgb(25, 27, 31);">(block box)</font></p>
+<ul>
+<li><font style="color:rgb(25, 27, 31);">div就是一个块元素，块元素就是会独占一行，高度被内容撑开</font></li>
+<li><font style="color:rgb(25, 27, 31);">内边距（padding）, 外边距（margin）, 边框（border） 会将其他元素从当前盒子周围“推开”</font></li>
+<li><font style="color:rgb(25, 27, 31);">除非特殊指定，诸如标题h1和段落p等默认情况下都是块级的盒子。</font></li>
+</ul>
+<p><font style="color:rgb(25, 27, 31);">3.</font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=264207395&content_type=Article&match_order=1&q=%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0&zhida_source=entity"><font style="color:rgb(9, 64, 142);">内联元素</font></a><font style="color:rgb(25, 27, 31);">的盒模型(inline box)</font></p>
+<ul>
+<li><font style="color:rgb(25, 27, 31);">高度和宽度都由内容撑开；只占自身大小；</font></li>
+<li><font style="color:rgb(25, 27, 31);">width&#x2F;height对行内元素（如 <span>）无效</font></li>
+<li><font style="color:rgb(25, 27, 31);">垂直方向的 padding&#x2F;margin不影响布局（但水平方向有效）</font></li>
+<li><font style="color:rgb(25, 27, 31);">用做链接的a 元素、em 以及 strong 都是默认处于 inline 状态的</font></li>
+</ul>
+<p><font style="color:rgb(25, 27, 31);">4.调试技巧</font></p>
+<p><font style="color:rgb(25, 27, 31);">1. 浏览器开发者工具</font></p>
+<p><font style="color:rgb(25, 27, 31);">Chrome 的 Elements → Styles 面板直观显示盒模型：Firefox 的 DevTools 中查看一个元素</font></p>
+<p><font style="color:rgb(25, 27, 31);">2. 轮廓调试法</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* &#123; outline: 1px solid red; &#125; /* 不影响布局的临时边框 */</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:rgb(25, 27, 31);">实战案例</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt; </span><br><span class="line">&lt;style&gt;</span><br><span class="line">div &#123;</span><br><span class="line">    background-color: lightgrey;</span><br><span class="line">    width: 300px;</span><br><span class="line">    border: 25px solid green;</span><br><span class="line">    padding: 25px;</span><br><span class="line">    margin: 25px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h2&gt;盒子模型演示&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;这里是盒子内的实际内容。有 25px 内间距，25px 外间距、25px 绿色边框。&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/61266124/1760541104712-6d194ca3-38a0-4269-9ae9-d2bbf28efed3.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/61266124/1760541104908-c89a7db2-dceb-466d-b215-4c9dc6807982.png"></p>
+<h1 id="CSS文字相关"><a href="#CSS文字相关" class="headerlink" title="CSS文字相关"></a><font style="color:rgb(25, 27, 31);">CSS文字相关</font></h1><p>text-decoration</p>
+<p>text-transform</p>
+<p>text-align</p>
+<p>line-height</p>
+<p>font-family 三个字体，后两者备用</p>
+<p>外部字体的引入：<a target="_blank" rel="noopener" href="https://fonts.google.com/">https://fonts.google.com</a></p>
+<h1 id="styling-links"><a href="#styling-links" class="headerlink" title="styling links"></a>styling links</h1><p>伪类表示元素的当前状态</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: purple;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="list-styles"><a href="#list-styles" class="headerlink" title="list styles"></a>list styles</h1><p><code>list-style-type</code></p>
+<p><code>list-style-image: url(&#39;../images/checkmark.png&#39;);</code>会将其覆盖。</p>
+<p>nth-child伪类，指定某一项</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 一个值：四边相同 */</span></span><br><span class="line"><span class="attribute">margin</span>: <span class="number">1rem</span>;  </span><br><span class="line"><span class="comment">/* 等同于 上下左右都是 1rem */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 两个值：上下 | 左右 */</span></span><br><span class="line"><span class="attribute">margin</span>: <span class="number">1rem</span> <span class="number">2rem</span>;  </span><br><span class="line"><span class="comment">/* 上下1rem，左右2rem */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 三个值：上 | 左右 | 下 */</span></span><br><span class="line"><span class="attribute">margin</span>: <span class="number">1rem</span> <span class="number">2rem</span> <span class="number">3rem</span>;  </span><br><span class="line"><span class="comment">/* 上1rem，左右2rem，下3rem */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 四个值：上 | 右 | 下 | 左（顺时针）*/</span></span><br><span class="line"><span class="attribute">margin</span>: <span class="number">1rem</span> <span class="number">2rem</span> <span class="number">3rem</span> <span class="number">4rem</span>;  </span><br><span class="line"><span class="comment">/* 上1rem，右2rem，下3rem，左4rem */</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="float"><a href="#float" class="headerlink" title="float"></a>float</h1><p><code>float</code> 是 CSS 里的一种<strong>布局方式</strong>，它的意思是：</p>
+<p>“让这个元素<strong>浮起来</strong>，并<strong>靠左或靠右排列</strong>，文字等内容会绕着它流动。”</p>
+<p>就像 Word 里插入一张图片，然后设置“文字环绕”一样。👇</p>
+<p>🖼️ 想象：</p>
+<p>一段文字中放了一张小图片，你设置图片浮动到右边，那么文字就会自动在图片左边环绕排布。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">float</span>: left;   <span class="comment">/* 向左浮动 */</span></span><br><span class="line"><span class="attribute">float</span>: right;  <span class="comment">/* 向右浮动 */</span></span><br><span class="line"><span class="attribute">float</span>: none;   <span class="comment">/* 不浮动（默认值） */</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="position"><a href="#position" class="headerlink" title="position"></a>position</h1><table>
+<thead>
+<tr>
+<th>值</th>
+<th>中文解释</th>
+<th>是否脱离文档流</th>
+<th>参考定位对象</th>
+<th>是否受 <code>top/right/bottom/left</code><br/> 影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>static</code></td>
+<td>默认值（普通流）</td>
+<td>❌ 否</td>
+<td>无（正常文档流）</td>
+<td>❌ 否</td>
+</tr>
+<tr>
+<td><code>relative</code></td>
+<td>相对定位</td>
+<td>❌ 否</td>
+<td>自身原来的位置</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>absolute</code></td>
+<td>绝对定位</td>
+<td>✅ 是</td>
+<td>最近的“已定位祖先”</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>fixed</code></td>
+<td>固定定位</td>
+<td>✅ 是</td>
+<td>浏览器视口（屏幕）</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td><code>sticky</code></td>
+<td>粘性定位</td>
+<td>❌&#x2F;✅ 混合</td>
+<td>滚动容器</td>
+<td>✅ 是</td>
+</tr>
+</tbody></table>
+<p>绝对定位元素会相对最近的已定位祖先（position ≠ static）进行定位。</p>
+<h1 id="flexbox"><a href="#flexbox" class="headerlink" title="flexbox"></a>flexbox</h1><p><a target="_blank" rel="noopener" href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/">https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/</a></p>
+<p>With flex-direction: row, the primary axis runs horizontally, from left to right. When we flip to flex-direction: column, the primary axis runs vertically, from top to bottom.</p>
+<p>In Flexbox, everything is based on the primary axis. The algorithm doesn’t care about vertical&#x2F;horizontal, or even rows&#x2F;columns. All of the rules are structured around this primary axis, and the cross axis that runs perpendicularly.</p>
+<p>The children will be positioned by default according to the following 2 rules:</p>
+<ul>
+<li>Primary axis: Children will be bunched up at the start of the container.</li>
+<li>Cross axis: Children will stretch out to fill the entire container.</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/webp/61266124/1760891453955-f30317c9-737c-4db7-b343-966e35601366.webp"></p>
+<p>We can change how children are distributed along the primary axis using the justify-content property.</p>
+<p>This is the fundamental difference between the primary&#x2F;cross axis. When we’re talking about alignment in the cross axis, each item can do whatever it wants. In the primary axis, though, we can only think about how to distribute the group.</p>
+<ul>
+<li>justify — to position something along the primary axis.</li>
+<li>align — to position something along the cross axis.</li>
+<li>content — a group of “stuff” that can be distributed.</li>
+<li>items — single items that can be positioned individually.</li>
+</ul>
+<h2 id="Hypothetical-size"><a href="#Hypothetical-size" class="headerlink" title="Hypothetical size"></a>Hypothetical size</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  <span class="selector-class">.flex-wrapper</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">2000px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="selector-tag">div</span> class=&quot;item&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="selector-tag">div</span> class=&quot;<span class="attribute">flex</span>-wrapper&quot;&gt;</span><br><span class="line">  &lt;<span class="selector-tag">div</span> class=&quot;item&quot;&gt;&lt;/<span class="selector-tag">div</span>&gt;</span><br><span class="line">&lt;/<span class="selector-tag">div</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>In Flow layout, width is a <strong>hard constraint</strong>. When we set width: 2000px, we’ll get a 2000-pixel wide element, even if it has to burst through the side of the viewport.</p>
+<p>In Flexbox, however, the width property is implemented differently. It’s more of a <strong>suggestion</strong> than a hard constraint.</p>
+<p>This is a core part of the Flexbox philosophy. Things are fluid and flexible and can adjust to the constraints of the world.</p>
+<h2 id="Growing-and-shrinking"><a href="#Growing-and-shrinking" class="headerlink" title="Growing and shrinking"></a>Growing and shrinking</h2><h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>The Flexbox authors created a generic “size” property called flex-basis. It’s like width or height, but pegged to the primary axis, like everything else. It allows us to set the hypothetical size of an element in the primary-axis direction, regardless of whether that’s horizontal or vertical.</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/61266124/1760893916462-f5cfd70f-17e0-4aec-a25d-0193df6aa48f.png"><img src="https://cdn.nlark.com/yuque/0/2025/png/61266124/1760893929764-ffded0b1-0eac-4a88-9518-1fcb1a78b4f2.png"></p>
+<p>同样作为一种suggestion，过大会自适应而不会溢出</p>
+<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><p>The default value for flex-grow is 0, which means that growing is opt-in. If we want a child to gobble up any extra space in the container, we need to explicitly tell it so.</p>
+<p>What if multiple children set flex-grow? In this case, the extra space is divided proportionally between children based on their flex-grow value.</p>
+<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>两个子元素如果是500px，容器为400px，那么则需要放弃100px。<code>flex-shrink</code>属性让我们决定如何支付这种平衡。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/61266124/1760894774315-9c969534-719f-49ee-b8fe-116a27931ddb.png"></p>
+<p>那么也就衍生出了防止收缩的方法，只要设为0，便不参与损失部分的比例分配。</p>
+<p>设置<code>min-width</code>也可以。</p>
+<h2 id="Gaps"><a href="#Gaps" class="headerlink" title="Gaps"></a>Gaps</h2><p>Gap allows us to create space in-between each Flex child.</p>
+<h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><blockquote>
+<p>Auto margins will gobble up the extra space, and apply it to the element’s margin. It gives us precise control over where to distribute the extra space.</p>
+</blockquote>
+<p>margin-left，margin，margin-right</p>
+<h2 id="Wrapping"><a href="#Wrapping" class="headerlink" title="Wrapping"></a>Wrapping</h2><p><code>flex-wrap：wrap</code></p>
+<p>Each row is its own mini Flexbox environment. align-items will move each item up or down within the invisible box that wraps around each row.</p>
+<h1 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h1><p><a target="_blank" rel="noopener" href="https://cssgridgarden.com/#zh-cn">https://cssgridgarden.com/#zh-cn</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">3</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>fraction</code>比例分配，跟<code>flex-grow</code>的性质相似。<code>fr</code>单元分配额外空间。首先，列宽将根据其内容进行计算。如果有任何剩余空间，它将根据<code>fr</code>值进行分配。</li>
+<li><code>grid-template-columns</code>和<code>grid-template-rows</code>分别定义列和行的布局。显式行。</li>
+<li><code>grid-template-columns: repeat(7, 1fr);</code>repeat 函数将为我们执行复制&#x2F;粘贴操作。</li>
+</ul>
+<p>默认情况下，<code>grid</code>会将每个子元素分配到第一个未被占用的网格单元，</p>
+<p><code>grid-row</code> 和 <code>grid-column</code> 属性允许我们指定网格子项应占用哪个轨道。</p>
+<blockquote>
+<p><code>grid-column: 1 / -1</code>将跨越网格宽度。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span> / <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*提供的数字是基于列线，而不是列索引*/</span></span><br><span class="line"><span class="comment">/*如果是单个行或列，则直接提供索引*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-areas</span>:</span><br><span class="line">    <span class="string">&#x27;sidebar header&#x27;</span></span><br><span class="line">    <span class="string">&#x27;sidebar main&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h2><p>一个字符串 &#x3D; 一行</p>
+<p>字符串里用空格分隔列，用引号换行分隔行</p>
+<p>重复的名字 &#x3D; 合并单元格（区域必须矩形）</p>
+<p>句点 . 或 连续多个 . &#x3D; 留空白格</p>
+<p>justify — 处理列。<br>align — 处理行。<br>content — 处理网格结构。</p>
+<p>items — 处理网格结构内的 DOM 节点。</p>
+<p><code>place-content: center;</code>的本质就是：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div><div class="tags"></div><div class="post-nav"><a class="next" href="/2025/09/20/%E7%94%B1%20Ghelper%20%E5%BC%95%E5%8F%91%E7%9A%84%20Win11%20%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86%E5%99%A8%E5%A4%B1%E6%95%88/">由 Ghelper 引发的 Win11 凭证管理器失效</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://loading2332.github.io"/></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img class="nofancybox" src="/img/avatar.jpg"/></a><p>Down the rabbit hole.</p><a class="info-icon" href="https://github.com/loading2332" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/language/" style="font-size: 15px;">language</a> <a href="/tags/ctf/" style="font-size: 15px;">ctf</a> <a href="/tags/csdiy/" style="font-size: 15px;">csdiy</a> <a href="/tags/algo/" style="font-size: 15px;">algo</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/10/22/CSS/">css</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/09/20/%E7%94%B1%20Ghelper%20%E5%BC%95%E5%8F%91%E7%9A%84%20Win11%20%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86%E5%99%A8%E5%A4%B1%E6%95%88/">由 Ghelper 引发的 Win11 凭证管理器失效</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/09/14/ccb/">长城杯</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/09/13/N1JCTF/WP/">N1JCTF2025</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/08/16/Sekai%202025/">Sekai 2025</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/08/03/cube_ctf/">cube_ctf</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/06/09/cs61b/">CS61B，启动！</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/05/06/Python_%E8%AF%AD%E6%B3%95%E7%B3%96/">Python_语法糖</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/05/06/%E4%BB%8E%E5%9B%9E%E6%96%87%E6%97%A5%E6%9C%9F%E5%AD%A6%E4%B9%A0datetime/">从回文日期学习datetime</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/04/27/%E5%8D%81%E5%85%AD%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFPythonA%E7%BB%84%E5%A4%8D%E7%9B%98/">十六届蓝桥杯PythonA组复盘</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">loading233.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="https://unpkg.com/@fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功！"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/css/external.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
